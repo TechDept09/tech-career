@@ -123,7 +123,7 @@ export default function CVForm() {
       }
 
       const response = await fetch(
-        "https://n8n.n8nhomelab.uk/webhook/cv-marketing",
+        "https://n8n.n8nhomelab.uk/webhook/it-tech",
         {
           method: "POST",
           body: formData,
@@ -396,7 +396,7 @@ export default function CVForm() {
                   </FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="e.g. MS Office, scheduling, correspondence, English communication, multitasking..."
+                      placeholder="e.g. Python, machine learning, workflow automation, API integration, process optimization, data analysis, AI implementation, RPA, scripting..."
                       {...field}
                       className="bg-white/60 border-slate-200 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300 min-h-[80px] resize-none"
                       data-testid="input-skills"
