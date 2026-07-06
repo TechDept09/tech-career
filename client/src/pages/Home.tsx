@@ -49,13 +49,12 @@ export default function Home() {
           <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-slate-900 mb-4 leading-[1.1]">
             Join Us as a{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-cyan-500">
-              AI and Automations
+              AI and Automations Specialist
             </span>
           </h1>
 
           <p className="text-base lg:text-lg text-slate-500 mb-8 leading-relaxed max-w-md">
-            We're looking for a professional, organized, and proactive individual
-            to support executive operations in AI and Automations.
+            We're looking for a proactive, organized, and detail-oriented individual to support the implementation of AI tools and business automations. You'll help streamline internal processes, improve operational efficiency, and assist with AI-driven projects across different departments.
           </p>
 
           {/* Requirements */}
