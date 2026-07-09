@@ -196,7 +196,7 @@ export default function CVForm() {
         <CardDescription className="text-slate-500">
           Fill in your details to apply for the{" "}
           <span className="font-semibold text-blue-700">
-            Personal Assistant
+            Ai & Automations
           </span>{" "}
           position
         </CardDescription>
