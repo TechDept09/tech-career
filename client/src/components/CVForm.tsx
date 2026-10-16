@@ -14,6 +14,7 @@ import {
   GraduationCap,
   Briefcase,
   DollarSign,
+  Languages,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import {
@@ -53,6 +54,7 @@ const formSchema = z.object({
   education: z.string().min(1, "Please select your education level"),
   experience: z.string().min(1, "Please select your work experience"),
   skills: z.string().min(10, "Please describe your skills (min. 10 characters)"),
+  language: z.string().min(1, "Please select your English proficiency level"),
   salary: z.string().min(1, "Expected salary is required"),
   cv: z
     .instanceof(FileList)
@@ -77,6 +79,7 @@ export default function CVForm() {
       education: "",
       experience: "",
       skills: "",
+      language: "",
       salary: "",
     },
   });
@@ -117,6 +120,7 @@ export default function CVForm() {
       formData.append("education", values.education);
       formData.append("experience", values.experience);
       formData.append("skills", values.skills);
+      formData.append("language", values.language);
       formData.append("salary", values.salary);
       if (values.cv && values.cv.length > 0) {
         formData.append("cv", values.cv[0]);
@@ -407,6 +411,43 @@ export default function CVForm() {
               )}
             />
 
+            {/* English Proficiency */}
+            <FormField
+              control={form.control}
+              name="language"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-slate-700 text-sm font-medium">
+                    English Proficiency
+                  </FormLabel>
+                  <div className="relative">
+                    <Languages className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 z-10 pointer-events-none" />
+                    <Select
+                      onValueChange={field.onChange}
+                      value={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger
+                          className="pl-9 bg-white/60 border-slate-200 focus:border-blue-500"
+                          data-testid="select-language"
+                        >
+                          <SelectValue placeholder="Select..." />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="Basic">Basic</SelectItem>
+                        <SelectItem value="Intermediate">Intermediate</SelectItem>
+                        <SelectItem value="Advanced">Advanced</SelectItem>
+                        <SelectItem value="Fluent">Fluent</SelectItem>
+                        <SelectItem value="Native">Native</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             {/* Expected Salary */}
             <FormField
               control={form.control}
@@ -462,14 +503,14 @@ export default function CVForm() {
                           {fileName || "Click to upload your CV"}
                         </p>
                         <p className="text-xs text-slate-400 mt-0.5">
-                          PDF, DOC, DOCX — max. 10MB
+                          PDF — max. 10MB
                         </p>
                       </div>
                       <input
                         id="file-upload"
                         type="file"
                         className="sr-only"
-                        accept=".pdf,.doc,.docx"
+                        accept=".pdf"
                         onChange={(e) => {
                           handleFileChange(e);
                           onChange(e.target.files);
